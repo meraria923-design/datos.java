@@ -1,10 +1,16 @@
-public class Operaciones2<T> {
+public class Operaciones1 <T> {
 
     private T obj1;
     private T obj2;
 
+    public Operaciones1(T obj1, T obj2) {
+        this.obj1 = obj1;
+        this.obj2 = obj2;
+    }
+
     public void operar(String operacion) {
 
+        // Si los dos objetos son numéricos
         if (obj1 instanceof Number && obj2 instanceof Number) {
 
             double num1 = ((Number) obj1).doubleValue();
@@ -23,6 +29,7 @@ public class Operaciones2<T> {
                 System.out.println("Operación no válida.");
             }
 
+        // Si son String o Character
         } else if ((obj1 instanceof String || obj1 instanceof Character) &&
                    (obj2 instanceof String || obj2 instanceof Character)) {
 
@@ -31,10 +38,13 @@ public class Operaciones2<T> {
             } else {
                 System.out.println("Con cadenas o caracteres solo se puede concatenar.");
             }
+
+        // Si alguno es Boolean
         } else if (obj1 instanceof Boolean || obj2 instanceof Boolean) {
 
             System.out.println("No se pueden realizar operaciones con Boolean.");
 
+        // Tipos diferentes
         } else {
 
             System.out.println("Los tipos de datos no son compatibles.");
@@ -65,8 +75,5 @@ public class Operaciones2<T> {
         objBooleanos.operar("suma");
     }
 }
-    
-
-
     
 
